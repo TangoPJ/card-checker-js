@@ -1,19 +1,13 @@
-const formatAccountNumber = (accountNumber: number | string) => {
-  return accountNumber.toString().split("").reverse().map(Number);
-};
+const formatAccountNumber = (accountNumber: number | string) =>
+  accountNumber.toString().split("").map(Number);
 
 export const calculateChecksum = (accountNumber: number | string) => {
-  const result = formatAccountNumber(accountNumber).reduce(
+  const result = formatAccountNumber(accountNumber).reduceRight(
     (acc, current, index) => {
-      if (index % 2 === 0) {
+      if (index % 2 === 1) {
         let tmp = current * 2;
-        if (tmp >= 10) {
-          tmp = tmp
-            .toString()
-            .split("")
-            .map(Number)
-            .reduce((a, b) => a + b, 0);
-          acc += tmp;
+        if (tmp > 9) {
+          acc += tmp - 9;
         } else {
           acc += tmp;
         }
