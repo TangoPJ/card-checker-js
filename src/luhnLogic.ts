@@ -43,5 +43,3 @@ export const generateLuhnDigits = (length: number) => {
 
   return baseDigits.join("") + checkdigit;
 };
-
-console.log(generateLuhnDigits(16));
