@@ -1,13 +1,24 @@
 {
-  "name": "card-checker",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "luhn-digits",
+  "version": "0.0.9",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "type": "module"
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "[ -d ./src ] && npm run build || exit 0"
+  },
+  "keywords": [
+    "luhn",
+    "luhn-algorithm",
+    "luhn-digits",
+    "card",
+    "card-checker"
+  ],
+  "author": "Rail Batyrshin",
+  "license": "MIT"
 }
